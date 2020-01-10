@@ -1,0 +1,104 @@
+<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+  <div>
+    <a class="navbar-brand font-weight-bold"><img src="assets/images/logo/IExel_Logo.png" alt="IExel Logo" width="130px"
+        height="60px"></a>
+  </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <span class="text-white font-weight-bold"><i class="fa fa-user-circle-o" aria-hidden="true"></i>&nbsp;Welcome
+          {{ studentName | titlecase }}</span>&nbsp;
+        <a class="btn btn-danger btn-sm text-white" (click)="logout()">
+          <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Logout
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div *ngIf="!isVoucher;then voucher else cExam">
+</div>
+<ng-template #voucher>
+  <div class="row custom-row mt-120">
+    <div class="col-sm-5 container jumbotron">
+      <form #frm="ngForm" class="form-group" autocomplete="off">
+        <fieldset>
+          <legend class="text-center font-weight-bold">Enter Voucher</legend>
+          <div class="form-group row mt-5">
+            <div class="col-sm-8 mx-auto d-block">
+              <input type="text" class="form-control" name="voucher" #voucher="ngModel" ngModel placeholder="Enter Voucher Code"
+                required />
+            </div><br /><br />
+            <div class="col-sm-8 mx-auto d-block">
+              <button class="btn btn-primary" (click)="getExam(voucher.value)">Next</button>
+            </div><br /><br />
+            <div class="col-sm-8 mx-auto d-block">
+              <div *ngIf="voucher.errors?.required && voucher.touched" class="alert alert-danger">
+                Please enter voucher code
+              </div>
+              <div *ngIf="voucherError" class="alert alert-danger">
+                Enter a valid Voucher Code
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</ng-template>
+<ng-template #cExam>
+  <div class="row custom-row mt-120">
+    <div class="col-sm-6 container jumbotron">
+      <form #frm="ngForm" class="form-group">
+        <fieldset>
+          <legend class="text-center font-weight-bold">Select Exam</legend>
+          <div class="form-group row mt-5">
+            <label class="col-sm-3 col-form-label font-weight-bold">Select Exam:</label>
+            <div class="col-sm-9">
+              <select class="form-control" name="exam" #exam ngModel (change)="get_details(exam.value)" required>
+                <option value="" disabled>Select Exam</option>
+                <option *ngFor="let e of exam_list" [value]="e.examCode">{{ e.examName | titlecase }}</option>
+              </select><br />
+            </div>
+          </div>
+          <div *ngIf="exam_details">
+            <div *ngIf="totalQue;then exmDetails">
+            </div>
+            <ng-template #exmDetails>
+              <div class="row">
+                <div class="col-sm-3 font-weight-bold">Total Questions:</div>
+                <div class="col-sm-9">{{ totalQue }}</div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3 font-weight-bold">Total Marks:</div>
+                <div class="col-sm-9">{{ totalMarks }}</div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3 font-weight-bold">Time Duration:</div>
+                <div class="col-sm-9">{{ duration }}</div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3 font-weight-bold">Instruction:</div>
+                <div class="col-sm-9">
+                  <ul>
+                    <li>Each question carries 1 mark.</li>
+                    <li>Multiple choice questions with only one valid answer.</li>
+                    <li>Don`t use the keyboard during exam.</li>
+                    <li>Click on the "Start Quiz" button to start the test.</li>
+                    <li>Your result will be displayed at the end of the test!</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary" [routerLink]="['/exam',ecode]" [disabled]="frm.invalid">Start
+                  Quiz</button>
+              </div>
+            </ng-template>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</ng-template>

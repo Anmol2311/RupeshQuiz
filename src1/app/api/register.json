@@ -1,0 +1,255 @@
+{
+  "Student": [
+    {
+      "id": 1,
+      "name": "Priya",
+      "email": "prkadam2@gmail.com",
+      "password": "priya@123",
+      "sec_ans": "black",
+      "mobile": "9876543210",
+      "gender": "Female",
+      "edu": "BE"
+    },
+    {
+      "id": 4
+    },
+    {
+      "name": "kdskj",
+      "email": "akjs@gmail.com",
+      "password": "asdfgh",
+      "sec_ans": "dog",
+      "mobile": "9876543210",
+      "gender": "Male",
+      "edu": "dds",
+      "id": 5
+    }
+  ],
+  "Admin": [
+    {
+      "id": 1,
+      "name": "Priya",
+      "email": "priya@gmail.com",
+      "password": "priya123",
+      "sec_ans": "black",
+      "mobile": "9876543210",
+      "gender": "Female",
+      "edu": "BE"
+    },
+    {
+      "name": "qwerty",
+      "email": "qw@gmail.com",
+      "password": "dsdsds",
+      "sec_ans": "cat",
+      "mobile": "3434339889",
+      "gender": "Female",
+      "edu": "dds",
+      "id": 2
+    }
+  ],
+  "Exam": [
+    {
+      "id": 1,
+      "exam_code": "wd001",
+      "exam_name": "Web Developement"
+    },
+    {
+      "exam_code": "html001",
+      "exam_name": "HTML Exam",
+      "id": 3
+    },
+    {
+      "exam_code": "php001",
+      "exam_name": "PHP Exam",
+      "id": 5
+    },
+    {
+      "exam_code": "css002",
+      "exam_name": "CSS exam",
+      "id": 6
+    }
+  ],
+  "Questions": [
+    {
+      "id": 1,
+      "exam_code": "wd001",
+      "que": "abc",
+      "opt1": "qwert",
+      "opt2": "sdsdf",
+      "opt3": "uuhh",
+      "opt4": "nnvnv",
+      "ans": "wwq"
+    },
+    {
+      "exam_code": "html001",
+      "que": "What does HTML stand for?",
+      "opt1": "Hyper Text Markup Language",
+      "opt2": "Hyperlinks and Text Markup Language",
+      "opt3": "Home Tool Markup Language",
+      "opt4": "Hyper Tool Markup Language",
+      "ans": "Hyper Text Markup Language",
+      "id": 2
+    },
+    {
+      "exam_code": "wd001",
+      "que": "mgkj",
+      "opt1": "kjkjdf",
+      "opt2": "kjsdkjdjq",
+      "opt3": "kjfdkjf",
+      "opt4": "fkjd",
+      "ans": "fdfjk",
+      "id": 5
+    },
+    {
+      "exam_code": "wd002",
+      "que": "kkj",
+      "opt1": "kj",
+      "opt2": "kj",
+      "opt3": "kj",
+      "opt4": "fn",
+      "ans": "kj",
+      "id": 7
+    },
+    {
+      "exam_code": "html001",
+      "que": "Choose the correct HTML element for the largest heading:",
+      "opt1": "<h1>",
+      "opt2": "<head>",
+      "opt3": "<h6>",
+      "opt4": "<heading>",
+      "ans": "<h1>",
+      "id": 8
+    },
+    {
+      "exam_code": "html001",
+      "que": "Which of these elements are all <table> elements?",
+      "opt1": "<table><tr><td>",
+      "opt2": "<table><head><tfoot>",
+      "opt3": "<thead><body><tr>",
+      "opt4": "<table><tr><tt>",
+      "ans": "<table><tr><td>",
+      "id": 10
+    },
+    {
+      "exam_code": "php001",
+      "que": "kk",
+      "opt1": "jj",
+      "opt2": "hb",
+      "opt3": "hb",
+      "opt4": "jhb",
+      "ans": "m",
+      "id": 11
+    },
+    {
+      "exam_code": "php001",
+      "que": "jjj",
+      "opt1": "hj",
+      "opt2": "hj",
+      "opt3": "hg",
+      "opt4": "hg",
+      "ans": "hg",
+      "id": 12
+    },
+    {
+      "exam_code": "css002",
+      "que": "kjjk",
+      "opt1": "j",
+      "opt2": "hj",
+      "opt3": "hj",
+      "opt4": "h",
+      "ans": "gh",
+      "id": 13
+    }
+  ],
+  "Result": [
+    {
+      "id": 1,
+      "student_name": "priya",
+      "exam_name": "Web Designing",
+      "total_que": 2,
+      "correct_ans": 2,
+      "wrong_ans": 0,
+      "exam_date": "",
+      "result": "Fail"
+    },
+    {
+      "id": 2,
+      "student_name": "sapana",
+      "exam_name": "Html Designing",
+      "total_que": 2,
+      "correct_ans": 2,
+      "wrong_ans": 0,
+      "exam_date": "",
+      "result": "Pass"
+    },
+    {
+      "student_name": "Priya",
+      "exam_name": "HTML Exam",
+      "total_que": 3,
+      "correct_ans": 2,
+      "wrong_ans": 1,
+      "exam_date": "2019-01-30T08:50:59.878Z",
+      "result": "Pass",
+      "id": 3
+    },
+    {
+      "student_name": "Priya",
+      "exam_name": "Web Developement",
+      "total_que": 2,
+      "correct_ans": 0,
+      "wrong_ans": 2,
+      "exam_date": "2019-01-30T09:22:10.196Z",
+      "result": "Fail",
+      "id": 4
+    },
+    {
+      "student_name": "Priya",
+      "exam_name": "HTML Exam",
+      "total_que": 3,
+      "correct_ans": 3,
+      "wrong_ans": 0,
+      "exam_date": "2019-01-30T09:27:03.420Z",
+      "result": "Pass",
+      "id": 5
+    },
+    {
+      "student_name": "Priya",
+      "exam_name": "HTML Exam",
+      "total_que": 3,
+      "correct_ans": 2,
+      "wrong_ans": 1,
+      "exam_date": "2019-01-30T11:06:53.724Z",
+      "result": "Pass",
+      "id": 6
+    },
+    {
+      "student_name": "Priya",
+      "exam_name": "HTML Exam",
+      "total_que": 3,
+      "correct_ans": 0,
+      "wrong_ans": 3,
+      "exam_date": "2019-01-30T11:17:30.882Z",
+      "result": "Fail",
+      "id": 7
+    },
+    {
+      "student_name": "Priya",
+      "exam_name": "HTML Exam",
+      "total_que": 3,
+      "correct_ans": 2,
+      "wrong_ans": 1,
+      "exam_date": "2019-01-30T11:55:46.384Z",
+      "result": "Pass",
+      "id": 8
+    },
+    {
+      "student_name": "Priya",
+      "exam_name": "Web Developement",
+      "total_que": 2,
+      "correct_ans": 0,
+      "wrong_ans": 2,
+      "exam_date": "2019-01-31T08:07:25.612Z",
+      "result": "Fail",
+      "id": 9
+    }
+  ]
+}

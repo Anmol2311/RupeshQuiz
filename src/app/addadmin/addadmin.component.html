@@ -1,0 +1,137 @@
+<div class="row custom-row mt-5">
+  <div class="col-sm-6 container jumbotron">
+    <form class="form-horizontal" #frm="ngForm" (ngSubmit)="register(frm.value)" autocomplete="off">
+      <fieldset>
+        <legend class="text-center font-weight-bold">Admin Registration</legend>
+        <br>
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">First & Last Name:</label>
+          <div class="col-sm-8">
+            <input type="text" name="sname" class="form-control" #name="ngModel" placeholder="Ex. Jhon Smith" ngModel
+              required pattern="[A-Za-z]+[\s]+[A-Za-z]+" autofocus />
+            <!-- <div *ngIf="name.invalid && name.touched" class="alert alert-danger">First & Last name is required</div>
+            <div *ngIf="name.invalid && name.pattern" class="alert alert-danger">First & Last name should be capital Or small letters only Ex. Jhon Smith</div> -->
+          </div>
+        </div>
+        <div *ngIf="name.invalid && name.touched" class="alert alert-danger">
+            <div *ngIf="name.errors?.required">First & Last name is required</div>
+            <div *ngIf="name.errors?.pattern">First & Last name should be capital Or small letters only Ex. Jhon Smith</div>
+          </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">Email Id:</label>
+          <div class="col-sm-8">
+            <input type="text" name="semail" class="form-control" #email="ngModel" placeholder="Enter your email id"
+              ngModel pattern="[a-z0-9.%!_]+@[a-z0-9]+\.[a-z]{2,4}" required />
+          </div>
+        </div>
+        <div *ngIf="email.invalid && email.touched" class="alert alert-danger">
+          <div *ngIf="email.errors?.required">Email is required.</div>
+          <div *ngIf="email.errors?.pattern">Please Enter Valid Email Address.For Ex: example@gmail.com</div>
+        </div>
+        <div ngModelGroup="password" #pass="ngModelGroup">
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Password:</label>
+            <div class="col-sm-8">
+              <show-hide-password icon="fontawesome" btnStyle="primary" [btnOutline]="true">
+                <input type="password" name="spwd" class="form-control" #pwd="ngModel" placeholder="Enter your password"
+                  ngModel required minlength="6" />
+              </show-hide-password>
+            </div>
+          </div>
+
+          <div *ngIf="(pass.invalid || pass.value?.pwd != pass.value?.cpwd) && pass.touched" class="alert alert-danger">
+            <div *ngIf="pass.invalid; else nomatch ">Password should be minimum 6 characters long.</div>
+            <ng-template #nomatch>Password and Confirm password does not match.</ng-template>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">Mobile Number:</label>
+          <div class="col-sm-8">
+            <input type="text" name="scontact" class="form-control" #mobile="ngModel" placeholder="Enter your Contact number"
+              ngModel required minlength="10" />
+          </div>
+        </div>
+        <div *ngIf="mobile.invalid && mobile.touched" class="alert alert-danger">
+          <div *ngIf="mobile.errors?.required">Mobile Number is required.</div>
+          <div *ngIf="mobile.errors?.minlength">Mobile Number must be 10 digits.</div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">Gender:</label>
+          <div class="col-sm-8">
+            <select class="form-control" name="sgender" #sgender="ngModel" ngModel required>
+              <option value="">Select Gender</option>
+              <option *ngFor="let g of gender" [value]="g">{{ g }}</option>
+            </select>
+          </div>
+        </div>
+        <div *ngIf="sgender.invalid && sgender.touched" class="alert alert-danger">
+          <div *ngIf="sgender.errors?.required">Please select the gender.</div>
+        </div>
+
+          <!-- selcet branches -->
+<!-- 
+          <div class="form-group row" >
+            <label class="col-sm-4 col-form-label">Are you from LightHouse ?</label>
+            <div class="col-sm-8" > 
+              <input type="checkbox" (click)="displayDropdown()">
+            </div>
+           </div>
+   
+          <div class="form-group row"  *ngIf="isLH">
+            <label class="col-sm-4 col-form-label">Select LightHouse Branch:</label>
+            <div class="col-sm-8">
+              <select class="form-control" name="lhbranches" #lhbranches="ngModel" [ngModel]="branches[0]" required>
+                  <option *ngFor="let branch of branches" [value]="branch">{{ branch }}</option>
+              </select>
+            </div>
+          </div>
+  
+          <div class="form-group row invisible"  *ngIf="!isLH" >
+           <div class="col-sm-8">
+              <select class="form-control" name="lhbranches" #lhbranches="ngModel" [ngModel]="brancheshematite[0]" required>
+                  <option *ngFor="let branch of brancheshematite" [value]="branch">{{ branch }}</option>
+              </select>
+            </div>
+          </div> -->
+          
+        <!-- select branches ends -->
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">Security Question:</label>
+          <div class="col-sm-8">
+            <select class="form-control" name="sque" #sque="ngModel" ngModel required>
+              <option value="">Select Security Question</option>
+              <option *ngFor="let s of sec_que" [value]="s">{{ s }}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">Answer:</label>
+          <div class="col-sm-8">
+            <input type="text" name="sans" class="form-control" #sans="ngModel" placeholder="Enter your security answer"
+              ngModel required />
+          </div>
+        </div>
+        <!--  recapcha -->
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Please fill Captcha</label>
+            <div class="col-sm-8">
+                <re-captcha 
+                name="captcha" 
+                [(ngModel)]="formModel"
+                (resolved)="resolved($event)" 
+                siteKey="6LcdFI8UAAAAAOmsYxPJJk4zMsP2FNCu0_gTOkW4"
+                required></re-captcha>
+            </div>
+        </div>
+
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-primary" [disabled]="frm.invalid">Submit</button>&nbsp;
+          <button type="button" class="btn btn-primary" (click)="back()">Back</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>

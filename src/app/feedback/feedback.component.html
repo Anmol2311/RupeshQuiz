@@ -1,0 +1,48 @@
+<div class="container-fluid" id="mainheader">
+    <h1 class="text-center bg-primary" id="header">IEXCEL FEEDBACK FORM</h1>
+    <div class="row">
+       <div class="col-lg-3" id="subheader">
+         
+       </div>
+       <div class="col-lg-6 jumbotron">
+        <!-- <h2 class="text-center">Feedback Form</h2> -->
+        <h3 class="mb-3">We would love to hear your thought,concern or problem with anything so we can improve !</h3>  
+
+        <form  #frm="ngForm" (ngSubmit)="feedbackSubmit(frm.value)" autocomplete="off">
+            <div class="form-group">
+              <label for="fname" class="text-primary">Enter Your Full Name</label>
+              <input type="text" class="form-control" id="fname" name="name" ngModel placeholder="Ex: James David Smith" autofocus>
+            </div>
+
+            <div class="form-group">
+                <label for="contact" class="text-primary">Contact Number</label>
+                <input type="text" class="form-control" id="contact" name="contact" ngModel placeholder="Ex: 8329324589" >
+             </div>
+
+             <div class="form-group">
+                <label for="email" class="text-primary">Email Id</label>
+                <input type="email" class="form-control" id="email" name="email" ngModel placeholder="Ex: example@gmail.com" >
+              </div>
+
+            <div class="form-group">
+                <label for="fname" class="text-primary" >Describe Feedback</label>
+                <textarea class="form-control" rows="3" id="feedback" name="feedback" ngModel></textarea>
+            </div>
+
+            <div class="form-group text-center">
+                <button class="btn btn-primary" routerLink="/">BACK</button> &nbsp; &nbsp;
+                <button class="btn btn-primary" type="submit" >
+                    <span class="spinner-grow spinner-grow-sm"></span>
+                     SUBMIT
+                </button>
+              </div>
+
+            
+                
+          </form>
+          
+       </div>
+       <div class="col-lg-3"></div>
+    </div>
+
+</div>

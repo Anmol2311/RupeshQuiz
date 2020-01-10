@@ -1,0 +1,38 @@
+#mainheader{
+ background-color: #808284;
+ height:100%;   
+}
+
+#header{
+ 
+     font-size: 45px;
+     font-weight: 900px;
+     color: white;
+
+}
+/* #subheader{
+  background-image: url("../../assets/Feedback.jpg");
+  height: 400px;
+  width: 600px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+} */
+
+
+#fname{
+
+    border-bottom: 2px solid #808284;
+}
+#email{
+
+    border-bottom: 2px solid #808284;
+}
+#contact{
+
+    border-bottom: 2px solid #808284;
+}
+#feedback{
+    border-bottom: 2px solid #808284;
+}

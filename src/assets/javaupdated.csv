@@ -1,0 +1,40 @@
+1,1001,Which is a valid keyword in java?,interface,string,Float,unsigned,interface
+2,1001,Which is the valid declarations within an interface definition?,public double methoda();,public final double methoda();,static void methoda(double d1);,protected void methoda(double d1);,public double methoda();
+3,1001,Which is a valid declarations of a String?,String s1 = null;,String s2 = 'null';,String s3 = (String) 'abc';,String s4 = (String) '\ufeed';,String s1 = null;
+4,1001,You want subclasses in any package to have access to members of a superclass. Which is the most restrictive access that accomplishes this objective?,public,private,protected ,transient,protected
+5,1001,Which one creates an instance of an array?,int[ ] ia = new int[15];,float fa = new float[20];,"char[ ] ca = ""Some String"";","int ia[ ] [ ] = { 4, 5, 6 }, { 1,2,3 };", int[ ] ia = new int[15];
+6,1001,Which of the following class level (nonlocal) variable declarations will not compile?,protected int a;,transient int b = 3;,private synchronized int e;,volatile int d;,private synchronized int e;
+7,1001,Which is a valid declaration within an interface?,public static short stop = 23;,transient short stop = 23;,protected short stop = 23;,final void madness(short stop);,public static short stop = 23;
+8,1001,"Which class does not override the equals() and hashCode() methods, inheriting them directly from class Object?",java.lang.String,java.lang.Double,java.lang.StringBuffer,java.lang.Character,java.lang.StringBuffer
+9,1001,"Which collection class allows you to grow or shrink its size and provides indexed access to its elements, but whose methods are not synchronized?",java.util.HashSet,java.util.LinkedHashSet,java.util.List,java.util.ArrayList,java.util.ArrayList
+10,1001,Which interface does java.util.Hashtable implement?,Java.util.Map,Java.util.List,Java.util.HashTable,Java.util.Collection,Java.util.Map
+11,1001,Which interface provides the capability to store objects using a key-value pair?,Java.util.Map,Java.util.Set,Java.util.List,Java.util.Collection,Java.util.Map
+12,1001,Which is valid declaration of a float?,float f = 1F;,float f = 1.0;,"float f = ""1"";",float f = 1.0d;,float f = 1F;
+13,1001,Which is true about a method-local inner class?,It must be marked final.,It can be marked abstract.,It can be marked public.,It can be marked static.,It can be marked abstract.
+14,1001,Which constructs an anonymous inner class instance?,Runnable r = new Runnable() { };,Runnable r = new Runnable(public void run() { });,Runnable r = new Runnable { public void run(){}};,System.out.println(new Runnable() {public void run() { }});,System.out.println(new Runnable() {public void run() { }});
+15,1001,What is the name of the method used to start a thread execution?,init();,start();,run();,resume();,start();
+16,1001,Which cannot directly cause a thread to stop executing?,Calling the SetPriority() method on a Thread object.,Calling the wait() method on an object.,Calling notify() method on an object.,Calling read() method on an InputStream object.,Calling notify() method on an object.
+17,1001,Which method must be defined by a class implementing the java.lang.Runnable interface?,void run(),public void run(),public void start(),void run(int priority),public void run()
+18,1001,Which will contain the body of the thread?,run();,start();,stop();,main();,run();
+19,1001,Which method registers a thread in a thread scheduler?,run();,construct();,start();,register();,start();
+20,1001,"Which class or interface defines the wait(), notify(),and notifyAll() methods?",Object,Thread,Runnable,Class,Object
+21,1001,What allows the programmer to destroy an object x?,x.delete(),x.finalize(),Runtime.getRuntime().gc(),Only the garbage collection system can destroy an object.,Only the garbage collection system can destroy an object.
+22,1001,Which mechanism is used when a thread is paused running in its critical section and another thread is allowed to enter (or lock) in the same critical section to be executed? ,Inter-thread communication,Initial-thread communication,Mutual Exclusive,None of the above, Inter-thread communication
+23,1001,Which method is used to change the name of a thread?,public String getName(),public void setName(String name),public void getName(),public String setName(String name),public void setName(String name)
+24,1001,Which method of string class in java is used to convert the boolean into String? ,public static String valueOf(double I),public static String valueOf(boolean I),public boolean equals(Object anObject),public static String valueOf(Object obj), public static String valueOf(Object obj)
+25,1001,Which is used to separate the hierarchy of the class while declaring an import statement? ,Package,Applet,Browser,All of the above,Package
+26,1001,How constructor can be used for a servlet?,Initialization,Constructor function,Initialization and Constructor function,Setup() method,Initialization and Constructor function
+27,1001,When destroy() method of a filter is called?,The destroy() method is called only once at the end of the life cycle of a filter,The destroy() method is called after the filter has executed doFilter method,The destroy() method is called only once at the begining of the life cycle of a filter,The destroyer() method is called after the filter has executed,The destroy() method is called only once at the end of the life cycle of a filter
+28,1001,How is the dynamic interception of requests and responses to transform the information done?,servlet container,servlet config,servlet context,servlet filter,servlet filter
+29,1001,Which of the below is not a session tracking method?,URL rewriting,History,Cookies,SSL sessions,History
+30,1001,Which of the following is stored at client side?,URL rewriting,Hidden form fields,SSL sessions,Cookies,Cookies
+31,1001,What is the maximum size of cookie?,4 KB,4 MB,4 bytes,40 KB,4 KB
+32,1001,How can we invalidate a session?,session.discontinue(),session.invalidate(),session.disconnect(),session.falsify(),session.invalidate()
+33,1001,Which method creates unique fields in the HTML which are not shown to the user?,User authentication,URL writing,HTML Hidden field,HTML invisible field,HTML Hidden field
+34,1001,Which object is used by spring for authentication?,ContextHolder,SecurityHolder,AnonymousHolder,SecurityContextHolder,SecurityContextHolder
+35,1001,Which tag should be used to pass information from JSP to included JSP?,Using <%jsp:page> tag,Using <%jsp:param> tag,Using <%jsp:import> tag,Using <%jsp:useBean> tag,Using <%jsp:param> tag
+36,1001,“request” is instance of which one of the following classes?,Request,HttpRequest,HttpServletRequest,ServletRequest,HttpServletRequest
+37,1001,Which is not a directive?,include,page,export,useBean,export
+38,1001,Which one of the following is correct for directive in JSP?,<%@directive%>,<%!directive%>,<%directive%>,<%=directive%>,<%@directive%>
+39,1001,Which of the following action variable is used to include a file in JSP?,jsp:setProperty,jsp:getProperty,jsp:include,jsp:plugin,jsp:include
+40,1001,What temporarily redirects response to the browser?,<jsp:forward>,<%@directive%>,response.sendRedirect(URL),response.setRedirect(URL),response.sendRedirect(URL)

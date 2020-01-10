@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+<div class="row custom-row mt-5">
+  <div class="container-fluid text-center">
+    <h3 class="text-primary text-uppercase font-weight-bold mb-5">Update Question</h3>
+    <hr class="mb-3">
+  </div>
+  <div class="col-sm-6 container jumbotron">
+      <form #frm="ngForm" (ngSubmit)="updateQue(frm.value)">
+        <input type="hidden" class="form-control" name="ecode" [ngModel]="quelist.exam_code" />
+        <div class="form-group row">
+          <label class="col-sm-3 form-label">Question:</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" name="que" [ngModel]="quelist.que" required />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 form-label">Option 1:</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" name="opt1" [ngModel]="quelist.opt1" required />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 form-label">Option 2:</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" name="opt2" [ngModel]="quelist.opt2" required />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 form-label">Option 3:</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" name="opt3" [ngModel]="quelist.opt3" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 form-label">Option 4:</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" name="opt4" [ngModel]="quelist.opt4" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 form-label">Answer:</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" name="ans" [ngModel]="quelist.ans" required />
+          </div>
+        </div>
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-primary" [disabled]="frm.invalid">Update</button>&nbsp;
+          <button type="button" class="btn btn-primary" routerLink="/manage_que_ans">Back</button>
+        </div>
+      </form>
+  </div>
+</div>

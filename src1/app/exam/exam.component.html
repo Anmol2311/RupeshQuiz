@@ -1,0 +1,43 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+  <form #frm="ngForm" (ngSubmit)="result(frm.value)">
+    <fieldset>
+      <!-- <legend class="text-center text-primary font-weight-bold mb-3">{{ exam_name | titlecase}} Quiz</legend> -->
+
+      <ng-container *ngFor="let q of ques; let i = index">
+        <div class="card">
+          <div class="card bg-info text-white card-header">Que. {{i+1}} {{ q.que }}</div>
+          <div class="card-body">
+            <div class="form-group">
+              <!-- <input type="hidden" name="que{{q.id}}" [value]="q.que"  [ngModel]="q.que" /> -->
+              <div class="form-check">
+                <label class="form-check-label font-weight-bold">
+                  <input type="radio" [value]="q.opt1" name="{{q.id}}" ngModel> {{ q.opt1 }}
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label font-weight-bold">
+                  <input type="radio" [value]="q.opt2" name="{{q.id}}" ngModel> {{ q.opt2 }}
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label font-weight-bold">
+                  <input type="radio" [value]="q.opt3" name="{{q.id}}" ngModel> {{ q.opt3 }}
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label font-weight-bold">
+                  <input type="radio" [value]="q.opt4" name="{{q.id}}" ngModel> {{ q.opt4 }}
+                </label>
+              </div>
+              <!-- <input type="hidden" name="ans{{q.id}}" [value]="q.ans" [ngModel]="q.ans" /> -->
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <div class="text-center mt-3 mb-5">
+        <button type="submit" class="btn btn-success">Submit Quiz</button>
+      </div>
+    </fieldset>
+  </form>
+</div>

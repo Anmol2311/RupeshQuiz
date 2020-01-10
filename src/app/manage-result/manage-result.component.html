@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="card mt-3">
+    <div class="card-header">
+      <div class="container-fluid text-center">
+        <h3 class="text-primary text-uppercase font-weight-bold">Manage Result </h3>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="container-fluid">
+        <table class="table table-striped table-hover">
+          <thead class="thead-dark">
+            <tr class="text-center">
+              <th>Student Name</th>
+              <th>Branch</th>
+              <th>Exam Name</th>
+              <th>Total Que</th>
+              <th>Correct Ans</th>
+              <th>Exam Date</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="data">
+            <ng-container *ngFor="let d of data">
+              <tr>
+                <td>{{ d.stdName }}</td>
+                <td>{{ d.stdBranches }}</td>
+                <td>{{ d.examName }}</td>
+                <td>{{ d.totalQue }}</td>
+                <td>{{ d.correctAns }}</td>
+                <td>{{ d.examDate | date }}</td>
+                <div *ngIf="d.status == 'pass'; then pass else fail"></div>
+                <ng-template #pass>
+                  <td class="text-success font-weight-bold">{{ d.status }}</td>
+                </ng-template>
+                <ng-template #fail>
+                  <td class="text-danger font-weight-bold">{{ d.status }}</td>
+                </ng-template>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+        <div class="text-center">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

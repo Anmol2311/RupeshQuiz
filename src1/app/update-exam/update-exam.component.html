@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<div class="custom-row mt-5 container-fluid">
+    <div class="col-sm-6 container jumbotron">
+        <form #frm="ngForm" (ngSubmit)="updateExam(frm.value)">
+          <fieldset>
+            <legend class="text-center font-weight-bold">Update Exam</legend><br/>
+          <div class="form-group row">
+            <label class="col-sm-3 form-label">Exam Code:</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" name="excode" [ngModel]="exam_code" required/>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-3 form-label">Exam Name:</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" name="exname" [ngModel]="exam_name" required/>
+            </div>
+          </div>
+          <div class="form-group text-center">
+            <button type="submit" class="btn btn-primary" [disabled]="frm.invalid">Update</button>&nbsp;
+            <button type="button" class="btn btn-primary" routerLink="/manage_exam">Back</button>
+          </div>
+        </fieldset>
+        </form>
+      </div>
+</div>

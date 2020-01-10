@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<div class="row custom-row mt-5">
+  <div class="container-fluid text-center">
+    <h3 class="text-primary text-uppercase font-weight-bold">Result</h3>
+    <!-- <hr class="mb-5"> -->
+  </div>
+  <div class="col-sm-6 container jumbotron mt-5">
+    <div class="row">
+      <p class="col-sm-5 font-weight-bold">Student Name:</p>
+      <div class="col-sm-7">
+        <h5>{{ resultObj.student_name}}</h5>
+      </div>
+    </div>
+    <div class="row">
+      <p class="col-sm-5 font-weight-bold">Exam Name:</p>
+      <div class="col-sm-7">
+        <h5>{{ resultObj.exam_name}}</h5>
+      </div>
+    </div>
+    <div class="row">
+      <p class="col-sm-5 font-weight-bold">Total Questions:</p>
+      <div class="col-sm-7">
+        <h5>{{ resultObj.total_que}}</h5>
+      </div>
+    </div>
+    <div class="row">
+      <p class="col-sm-5 font-weight-bold">Correct Answers:</p>
+      <div class="col-sm-7">
+        <h5>{{ resultObj.correct_ans}}</h5>
+      </div>
+    </div>
+    <div class="row">
+      <p class="col-sm-5 font-weight-bold">Wrong Answers:</p>
+      <div class="col-sm-7">
+        <h5>{{ resultObj.wrong_ans}}</h5>
+      </div>
+    </div>
+    <div class="row">
+      <p class="col-sm-5 font-weight-bold">Result:</p>
+      <div class="col-sm-7">
+        <div *ngIf="resultObj.result == 'Pass'; then pass else fail"></div>
+        <ng-template #pass><h5 class="text-success font-weight-bold">{{ resultObj.result}}</h5></ng-template>
+        <ng-template #fail><h5 class="text-danger font-weight-bold">{{ resultObj.result}}</h5></ng-template>
+      </div>
+    </div><br/>
+    <div class="form-group text-center">
+      <button type="button" class="btn btn-lg btn-primary" routerLink="/exam_form">Exit</button>
+    </div>
+  </div>
+</div>

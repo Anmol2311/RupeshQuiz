@@ -1,0 +1,224 @@
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <div>
+    <a class="navbar-brand font-weight-bold" routerLink="/dashboard"><img src="assets/images/logo/IExel_Logo.png" alt="IExel Logo"
+        width="130px" height="60px"></a>
+  </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav mx-auto d-block">
+      <li class="nav-item">
+        <div class="container-fluid">
+          <h2 class="text-primary text-uppercase font-weight-bold">Welcome to Quiz Application </h2>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="row custom-row mt-5">
+  <div class="col-sm-6 container jumbotron">
+    <form class="form-horizontal" #frm="ngForm" (ngSubmit)="register(frm.value)" autocomplete="off">
+      <fieldset>
+        <legend class="text-center font-weight-bold">Student Registration</legend>
+        <br>
+
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">PNR No:</label>
+          <div class="col-sm-8">
+            <input type="text" name="spnr" class="form-control" #name="ngModel" placeholder="PNR Number" ngModel
+               autofocus />
+          </div>
+        </div>
+
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">First & Last Name:</label>
+          <div class="col-sm-8">
+            <input type="text" name="sname" class="form-control" #name="ngModel" placeholder="Ex. Jhon Smith" ngModel
+                />
+          </div>
+        </div>
+        <!-- <div *ngIf="name.invalid && name.touched" class="alert alert-danger">
+            <div *ngIf="name.errors?.required">First & Last name is required</div>
+            <div *ngIf="name.errors?.pattern">First & Last name should be capital Or small letters only Ex. Jhon Smith</div>
+       </div> -->
+
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">Email Id:</label>
+          <div class="col-sm-8">
+            <input type="text" name="semail" class="form-control" #email="ngModel" placeholder="Enter your email id"
+              ngModel />
+          </div>
+        </div>
+
+        <!-- 
+          pattern="[a-z0-9.%!_]+@[a-z0-9]+\.[a-z]{2,4}" required
+          <div *ngIf="email.invalid && email.touched" class="alert alert-danger">
+          <div *ngIf="email.errors?.required">Email is required.</div>
+          <div *ngIf="email.errors?.pattern">Please Enter Valid Email Address.For Ex: example@gmail.com</div>
+        </div> -->
+
+
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">Password:</label>
+          <div class="col-sm-8">
+            <show-hide-password icon="fontawesome" btnStyle="primary" [btnOutline]="true">
+               <input type="password" name="spwd" class="form-control" #pwd="ngModel" placeholder="Enter your password"
+                ngModel  />
+            </show-hide-password>
+          </div>
+        </div>
+        
+        <!-- 
+           required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+          
+          <div *ngIf="pwd.invalid && pwd.touched">
+          <div *ngIf="pwd.errors?.required" class="alert alert-danger">
+            Password is required field
+          </div>
+          <div *ngIf="pwd.errors?.pattern" class="alert alert-danger">
+            Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters
+          </div>
+        </div> -->
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">Mobile Number:</label>
+          <div class="col-sm-8">
+            <input type="text" name="scontact" class="form-control" #mobile="ngModel" placeholder="Enter your Contact number"
+              ngModel  />
+          </div>
+        </div>
+
+        <!-- 
+           required pattern="[0-9]{10}"
+          
+          <div *ngIf="mobile.invalid && mobile.touched">
+          <div *ngIf="mobile.errors?.required" class="alert alert-danger">
+            Contact is Required Field
+          </div>
+          <div *ngIf="mobile.errors?.pattern" class="alert alert-danger">
+            Contact Number Should Be 10 Digit Number( 0 to 9 )
+          </div>
+        </div> -->
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">Gender:</label>
+          <div class="col-sm-8">
+            <select class="form-control" name="sgender" #sgender="ngModel" ngModel required>
+              <!-- <option value="">Select Gender</option> -->
+              <option *ngFor="let g of gender" [value]="g">{{ g }}</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- <div *ngIf="sgender.invalid && sgender.touched" class="alert alert-danger">
+          <div *ngIf="sgender.errors?.required">Please select the gender.</div>
+        </div> -->
+
+
+        <!-- <div class="form-group row">
+          <label class="col-sm-4 col-form-label">Education:</label>
+          <div class="col-sm-8">
+            <input type="text" name="sedu" class="form-control" #edu="ngModel" placeholder="Enter your Education"
+              ngModel required />
+          </div>
+        </div>
+        <div *ngIf="edu.invalid && edu.touched" class="alert alert-danger">
+          <div *ngIf="edu.errors?.required">Please enter your education.</div>
+        </div> -->
+
+         <!-- selcet branches -->
+         <!-- Recaptch -->
+
+      <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Please fill captcha</label>
+        <div class="col-sm-8">
+            <re-captcha 
+            name="captcha" 
+            [(ngModel)]="formModel"
+            (resolved)="resolved($event)" 
+            siteKey="6LcdFI8UAAAAAOmsYxPJJk4zMsP2FNCu0_gTOkW4"
+            ></re-captcha>
+        </div>
+    </div>
+
+     <!-- <div *ngIf="recaptcha.invalid && recaptcha.touched" class="alert alert-danger">
+          <div *ngIf="recaptcha.errors?.required">Captcha is required</div>
+
+          [disabled]="frm.invalid"
+
+          required in captha 
+     </div> -->
+
+          
+   
+
+
+         <div class="form-group row" >
+          <label class="col-sm-4 col-form-label">LightHouse Student ?</label>
+          <div class="col-sm-8" > 
+            <input type="checkbox" (click)="displayDropdown()">
+          </div>
+         </div>
+ 
+        <div class="form-group row"  *ngIf="isLH">
+          <label class="col-sm-4 col-form-label">Select LightHouse Branch:</label>
+          <div class="col-sm-8">
+            <select class="form-control" name="lhbranches" #lhbranches="ngModel" [ngModel]="branches[0]" required>
+              <option disabled>Select LH Branch</option>
+              <option *ngFor="let branch of branches" [value]="branch">{{ branch }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row invisible"  *ngIf="!isLH" >
+         <div class="col-sm-8">
+            <select class="form-control" name="lhbranches" #lhbranches="ngModel" [ngModel]="brancheshematite[0]" required>
+                <option *ngFor="let branch of brancheshematite" [value]="branch">{{ branch }}</option>
+            </select>
+          </div>
+        </div>
+        
+      <!-- select branches ends -->
+
+
+
+        <!-- <div class="form-group row">
+          <label class="col-sm-4 col-form-label">Security Question:</label>
+          <div class="col-sm-8">
+            <select class="form-control" name="sque" #sque="ngModel" ngModel required>
+              <option value="">Select Security Question</option>
+              <option *ngFor="let s of sec_que" [value]="s">{{ s }}</option>
+            </select>
+          </div>
+        </div>
+        <div *ngIf="sque.invalid && sque.touched" class="alert alert-danger">
+          <div *ngIf="sque.errors?.required">Please select security question.</div>
+        </div>
+
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">Answer:</label>
+          <div class="col-sm-8">
+            <input type="text" name="sans" class="form-control" #sans="ngModel" placeholder="Enter your security answer"
+              ngModel required />
+          </div>
+        </div>
+        <div *ngIf="sans.invalid && sans.touched" class="alert alert-danger">
+          <div *ngIf="sans.errors?.required">Please enter your security answer.</div>
+        </div> -->
+     
+      <div class="form-group text-center">
+          <button type="submit" class="btn btn-primary" >Submit</button>&nbsp;
+          <button type="reset" class="btn btn-primary">Reset</button>&nbsp;
+          <button type="reset" class="btn btn-primary" routerLink="/">Back</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+<!-- <p>{{ frm.value | JSON }}</p> -->

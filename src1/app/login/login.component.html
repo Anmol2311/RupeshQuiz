@@ -1,0 +1,64 @@
+<div class="row custom-row mt-5">
+  <div class="container-fluid text-center">
+    <h2 class="text-primary text-uppercase font-weight-bold mb-5">Welcome to Quiz Application </h2>
+    <!-- <hr class="mb-5"> -->
+  </div>
+  <div class="col-sm-5 container jumbotron">
+    <div class="text-center">
+      <button type="button" class="btn btn-primary text-uppercase" (click)="showStud()">Student</button>&nbsp;&nbsp;&nbsp;
+      <button type="button" class="btn btn-primary text-uppercase" (click)="showAdmin()">Admin</button>
+    </div>
+    <br/>
+    <div *ngIf="isStud; then stud else admin"></div>
+    <ng-template #stud>
+        <form #frm="ngForm" (ngSubmit)="studLogin(frm.value)" autocomplete="off">
+            <fieldset>
+              <legend class="text-center font-weight-bold">Student Login</legend>
+              <br>
+              <div class="form-group">
+                <input type="text" class="form-control" name="uname" ngModel placeholder="Enter Username (Email id)" required />
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" name="upass" ngModel placeholder="Enter Password" required />
+              </div>
+              <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary" [disabled]="frm.invalid">Submit</button>&nbsp;
+                <button type="reset" class="btn btn-primary">Reset</button>
+              </div>
+            </fieldset>
+            <h6 *ngIf="!exist" class="text-danger text-center">{{ errorMsg }}</h6>
+      
+            <div class="text-center">
+              <p class="text-primary" style="cursor: pointer;" [routerLink]="['/forget_pass','student']">Forget Password?</p>
+              <p class="text-primary" style="cursor: pointer;" [routerLink]="['/register', 'login']">New User? Click here to
+                register.</p>
+            </div>
+          </form>
+    </ng-template>
+    <ng-template #admin>
+        <form #frm1="ngForm" (ngSubmit)="adminLogin(frm1.value)" autocomplete="off">
+            <fieldset>
+              <legend class="text-center font-weight-bold">Admin Login</legend>
+              <br>
+              <div class="form-group">
+                <input type="text" class="form-control" name="auname" ngModel placeholder="Enter Username (Email id)" required />
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" name="aupass" ngModel placeholder="Enter Password" required />
+              </div>
+              <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary" [disabled]="frm1.invalid">Submit</button>&nbsp;
+                <button type="reset" class="btn btn-primary">Reset</button>
+              </div>
+            </fieldset>
+            <h6 *ngIf="!exist" class="text-danger text-center">{{ errorMsg }}</h6>
+      
+            <div class="text-center">
+              <p class="text-primary" style="cursor: pointer;" [routerLink]="['/forget_pass','admin']">Forget Password?</p>
+              <p class="text-primary" style="cursor: pointer;" [routerLink]="['/register', 'login']">New User? Click here to
+                register.</p>
+            </div>
+          </form>
+    </ng-template>
+  </div>
+</div>

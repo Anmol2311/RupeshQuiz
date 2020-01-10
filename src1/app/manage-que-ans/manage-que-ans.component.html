@@ -1,0 +1,72 @@
+<app-navbar></app-navbar>
+<div class="row custom-row mt-5">
+  <div class="container-fluid text-center">
+    <h3 class="text-primary text-uppercase font-weight-bold mb-5">Manage Questions And Answers</h3>
+    <hr class="mb-3">
+
+    <div class="col-sm-6 container jumbotron">
+      <div class="form-group row" style="margin-bottom: -20px;">
+        <label class="col-sm-3 col-form-label">Select Exam:</label>
+        <div class="col-sm-9">
+          <select class="form-control" name="exam" (change)="get_details($event.target.value)" required>
+            <option value="">Select Exam</option>
+            <option *ngFor="let el of exam_list" [value]="el.exam_code">{{ el.exam_name }}</option>
+          </select><br />
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="container"> -->
+    <ng-container *ngIf="!show">
+      <table class="table table-striped table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <td colspan="8">
+           
+            <button type="submit" class="btn btn-primary" [routerLink]="['/add_que',exmID]">Add New Question</button>
+            </td>
+          </tr>
+          <tr class="text-center">
+            <th>Sr. No.</th>
+            <th>Question</th>
+            <th>Option 1</th>
+            <th>Option 2</th>
+            <th>Option 3</th>
+            <th>Option 4</th>
+            <th>Answer</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          
+          <ng-container *ngFor="let e of question | filter:term | paginate:{itemsPerPage:5,currentPage: p}; let i= index">
+            <tr>
+              <td>{{ i+1 }}</td>
+              <td>{{ e.que }}</td>
+              <td>{{ e.opt1 }}</td>
+              <td>{{ e.opt2 }}</td>
+              <td>{{ e.opt3 }}</td>
+              <td>{{ e.opt4 }}</td>
+              <td>{{ e.ans }}</td>
+              <td class="row">
+                <button class="btn btn-success btn-sm" [routerLink]="['/update_que',e.id]">
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </button>&nbsp;
+                <button class="btn btn-danger btn-sm" (click)="deleteQue(e.id)">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+      <div class="text-center">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+    </ng-container>
+    
+    <!-- </div> -->
+
+  </div>
+
+</div>

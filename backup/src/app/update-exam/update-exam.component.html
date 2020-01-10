@@ -1,0 +1,35 @@
+<!-- <app-navbar></app-navbar> -->
+<div *ngIf="data && data.length > 0" class="custom-row mt-5 container-fluid">
+    <div class="col-sm-6 container jumbotron">
+        <form #frm="ngForm" (ngSubmit)="updateExam(frm.value)">
+          <fieldset>
+            <legend class="text-center font-weight-bold">Update Exam</legend><br/>
+          <div class="form-group row">
+            <label class="col-sm-3 form-label">Exam Code:</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" name="excode" [ngModel]="data[0].examCode" required/>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-3 form-label">Exam Name:</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" name="exname" [ngModel]="data[0].examName" required/>
+            </div>
+          </div>
+          <div class="form-group row">
+              <label class="col-sm-3 form-label">Exam Status:</label>
+              <div class="col-sm-9">
+                  <select class="form-control" name="exstatus"  [ngModel]="data[0].status" required>
+                      <option value="">Select Gender</option>
+                      <option *ngFor="let es of examStatus" [value]="es">{{ es | titlecase }}</option>
+                    </select>
+              </div>
+            </div>
+          <div class="form-group text-center">
+            <button type="submit" class="btn btn-primary" [disabled]="frm.invalid">Update</button>&nbsp;
+            <button type="button" class="btn btn-primary" (click)="back()">Back</button>
+          </div>
+        </fieldset>
+        </form>
+      </div>
+</div>

@@ -1,0 +1,64 @@
+<app-navbar></app-navbar>
+<div class="row custom-row mt-5">
+  
+  <div class="col-sm-7 container jumbotron">
+    <form #frm="ngForm" class="form-group">
+      <fieldset>
+        <legend class="text-center font-weight-bold">Select Exam</legend>
+        <div class="form-group row mt-5">
+          <label class="col-sm-3 col-form-label">Select Exam:</label>
+          <div class="col-sm-9">
+            <select class="form-control" name="exam" (change)="get_details($event.target.value)" required>
+              <option value="">Select Exam</option>
+              <option *ngFor="let e of exam_list" [value]="e.exam_code">{{ e.exam_name }}</option>
+            </select><br/>
+          </div>
+        </div>
+        <div *ngIf="exmID">
+          <div *ngIf="!totalQue;else exmDetails">
+            <!-- <p>Select the exam</p> -->
+          </div>
+          <ng-template #exmDetails>
+              <div class="row">
+                  <label class="col-sm-4 col-form-label">Total Questions:</label>
+                  <div class="col-sm-8">
+                     <!-- <input type="text" class="form-control" [value]="q.total_que"/>  -->
+                     <h6>{{ totalQue }}</h6>
+                    </div>
+              </div>
+              <div class="row">
+                  <label class="col-sm-4 col-form-label">Total Marks:</label>
+                  <div class="col-sm-8">
+                     <!-- <input type="text" class="form-control"  [value]="q.marks"/>  -->
+                     <h6>{{ totalMarks }}</h6>
+                  </div>
+              </div>
+              <div class="row">
+                  <label class="col-sm-4 col-form-label">Total Duration:</label>
+                  <div class="col-sm-8">
+                     <!-- <input type="text" class="form-control"  [value]="q.duration"/>  -->
+                     <h6>{{ duration }} Minutes</h6>
+                  </div>
+              </div>
+              <div class="form-group row mt-5">
+                <label class="col-sm-3 col-form-label">Instruction:</label>
+                <div class="col-sm-9">
+                 <p>
+                    This quiz consists of multiple-choice questions. Keep the following in mind:<br/><br/>
+                    <strong> Timing -</strong> You will need to complete each of your attempts in one sitting and within the allotted time.<br/>
+                    <strong> Answers -</strong> You may review your answer-choices and compare them to the correct answers after your final attempt.<br/><br/>
+                    To start, click the "Take the Quiz" button. When finished, click the "Submit Quiz" button.
+                </p>
+                </div>
+              </div>
+              <div class="text-center">
+                  <button type="submit" class="btn btn-primary" [routerLink]="['/exam',ecode]" [disabled]="frm.invalid">Take the Quiz</button>
+              </div>
+          </ng-template>
+        </div>
+        
+      </fieldset>
+    </form>
+    
+  </div>
+</div>

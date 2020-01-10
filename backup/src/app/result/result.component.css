@@ -1,0 +1,14 @@
+p {
+    font-size: 18px;
+}
+.mt-90{
+    margin-top: 90px;
+}
+.mt-60{
+    margin-top: 60px;
+}
+.bg-alice{
+    border: aliceblue;
+}
+ol {font-weight: bold;}
+ol li span.label {font-weight:normal;}
